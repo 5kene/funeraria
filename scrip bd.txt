@@ -1,0 +1,153 @@
+/* crear la base de datos */
+CREATE DATABASE cementerio;
+USE cementerio;
+
+/* creamos la tablas */
+
+CREATE TABLE canton (
+    id_can INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_can VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE provincia (
+    id_pro INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_pro VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE ubicacion (
+    id_ubi INT AUTO_INCREMENT PRIMARY KEY,
+    id_canton INT,
+    id_provincia INT,
+    FOREIGN KEY (id_canton) REFERENCES canton(id_can),
+    FOREIGN KEY (id_provincia) REFERENCES provincia(id_pro)
+);
+
+CREATE TABLE cliente (
+    id_clien INT AUTO_INCREMENT PRIMARY KEY,
+    id_ubicacion INT,
+    ci_clien VARCHAR(10) NOT NULL,
+    nombre_clien VARCHAR(100) NOT NULL,
+    apellido_clien VARCHAR(100) NOT NULL,
+    fecha_nacimiento_clien DATE NOT NULL,
+    telefono1 VARCHAR(10),
+    telefono2 VARCHAR(10),
+    FOREIGN KEY (id_ubicacion) REFERENCES ubicacion(id_ubi)
+);
+
+CREATE TABLE causa_muerte (
+    id_causa_muerte INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_causa_muerte VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE difunto (
+    id_difunto INT AUTO_INCREMENT PRIMARY KEY,
+    id_causa_muerte INT,
+    nombre_difunto VARCHAR(100) NOT NULL,
+    apellido_difunto VARCHAR(100) NOT NULL,
+    fecha_nacimiento_difunto DATE NOT NULL,
+    fecha_defuncion_difunto DATE NOT NULL,
+    codigo_acta_difunto INT NOT NULL,
+    FOREIGN KEY (id_causa_muerte) REFERENCES causa_muerte(id_causa_muerte)
+);
+
+CREATE TABLE tipo_estructura (
+    id_tipo_estructura INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_tipo_estruc VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE estado_estructura (
+    id_estado_estructura INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_est_estruc VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE lugar_estructura (
+    id_lugar_estructura INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_zona VARCHAR(100) NOT NULL,
+    nombre_manzana VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE estructura (
+    id_estructura INT AUTO_INCREMENT PRIMARY KEY,
+    id_lugar_estructura INT,
+    id_tipo_estructura INT,
+    id_estado_estructura INT,
+    cruces BOOLEAN NOT NULL,
+    FOREIGN KEY (id_lugar_estructura) REFERENCES lugar_estructura(id_lugar_estructura),
+    FOREIGN KEY (id_tipo_estructura) REFERENCES tipo_estructura(id_tipo_estructura),
+    FOREIGN KEY (id_estado_estructura) REFERENCES estado_estructura(id_estado_estructura)
+);
+
+CREATE TABLE tipo_pago (
+    id_tipo_pago INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_tipo_pago VARCHAR(100) NOT NULL
+);
+
+
+CREATE TABLE tipo_personal (
+    id_tipo_personal INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_tipo_personal VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE personal (
+    id_personal INT AUTO_INCREMENT PRIMARY KEY,
+    id_tipo_personal INT,
+    ci_personal VARCHAR(10) NOT NULL,
+    nombre_personal VARCHAR(100) NOT NULL,
+    apellido_personal VARCHAR(100) NOT NULL,
+    fecha_nacimiento_personal DATE NOT NULL,
+    telefono1_personal VARCHAR(10),
+    telefono2_personal VARCHAR(10),
+    FOREIGN KEY (id_tipo_personal) REFERENCES tipo_personal(id_tipo_personal)
+);
+
+CREATE TABLE tipo_incidente (
+    id_tipo_incidente INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_tipo_incidente VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE reporte_incidente (
+    id_incidente INT AUTO_INCREMENT PRIMARY KEY,
+    id_tipo_incidente INT,
+    id_personal INT,
+    fecha_reporte_incidente DATE NOT NULL,
+    FOREIGN KEY (id_tipo_incidente) REFERENCES tipo_incidente(id_tipo_incidente),
+    FOREIGN KEY (id_personal) REFERENCES personal(id_personal)
+);
+
+CREATE TABLE tipo_tramite (
+    id_tipo_tramite INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_tipo_tramite VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE tramite (
+    id_tramite INT AUTO_INCREMENT PRIMARY KEY,
+    id_tipo_tramite INT,
+    id_cliente INT,
+    id_difunto INT,
+    id_estructura INT,
+    id_personal INT,
+    fecha_tramite DATE NOT NULL,
+    fecha_cumpli_tramite DATE NOT NULL,
+    mensaje_tramite VARCHAR(100) NOT NULL,
+    FOREIGN KEY (id_tipo_tramite) REFERENCES tipo_tramite(id_tipo_tramite),
+    FOREIGN KEY (id_cliente) REFERENCES cliente(id_clien),
+    FOREIGN KEY (id_difunto) REFERENCES difunto(id_difunto),
+    FOREIGN KEY (id_personal) REFERENCES personal(id_personal),
+    FOREIGN KEY (id_estructura) REFERENCES estructura(id_estructura)
+);
+
+CREATE TABLE certificado (
+    id_certificado INT AUTO_INCREMENT PRIMARY KEY,
+    id_tramite INT,
+    FOREIGN KEY (id_tramite) REFERENCES tramite(id_tramite)
+);
+
+CREATE TABLE pago (
+    id_pago INT AUTO_INCREMENT PRIMARY KEY,
+    id_tipo_pago INT,
+    id_tramite INT,
+    cantidad_pago DECIMAL(6, 2) NOT NULL,
+    fecha_pago DATE NOT NULL,
+    FOREIGN KEY (id_tipo_pago) REFERENCES tipo_pago(id_tipo_pago),
+    FOREIGN KEY (id_tramite) REFERENCES tramite(id_tramite)
+);
