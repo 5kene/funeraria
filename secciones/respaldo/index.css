@@ -1,0 +1,42 @@
+.message-box {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px;
+    color: #fff;
+    background-color: #44c767;
+    border-radius: 5px;
+    z-index: 1000;
+    display: none; /* Inicialmente oculto */
+}
+.error-box {
+    background-color: #ff0000;
+}
+.card {
+    max-width: 300px; /* Anchura máxima de los card */
+    margin: 20px auto; /* Centra los card horizontalmente y añade un margen superior e inferior */
+    border: none; /* Quita el borde de los card */
+    border-radius: 10px; /* Añade bordes redondeados a los card */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Añade sombra a los card */
+    background-color: #f8f9fa; /* Color de fondo */
+}
+
+.card-header {
+    background-color: #007bff; /* Color azul para el encabezado de los card */
+    color: white; /* Texto blanco para el encabezado */
+    border-radius: 10px 10px 0 0; /* Añade bordes redondeados solo en la parte superior */
+    padding: 10px; /* Espaciado interno del encabezado */
+}
+
+.card-body {
+    padding: 20px; /* Espaciado interno del cuerpo del card */
+}
+
+.card-body p {
+    margin-bottom: 0; /* Elimina el margen inferior predeterminado */
+}
+
+.card-body .btn {
+    width: 100%; /* Ancho completo para los botones */
+    margin-top: 15px; /* Margen superior para los botones */
+}

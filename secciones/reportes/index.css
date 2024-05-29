@@ -1,0 +1,35 @@
+/* Estilos para los card */
+.card {
+    max-width: 300px; /* Anchura máxima de los card */
+    margin: 20px auto; /* Centra los card horizontalmente y añade un margen superior e inferior */
+    border: none; /* Quita el borde de los card */
+    border-radius: 10px; /* Añade bordes redondeados a los card */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Añade sombra a los card */
+    background-color: #a8cfc7; /* Color turquesa */
+}
+
+.card-header {
+    background-color: #328a78; /* Color turquesa más oscuro para el encabezado de los card */
+    color: white; /* Texto blanco para el encabezado */
+    border-radius: 10px 10px 0 0; /* Añade bordes redondeados solo en la parte superior */
+    padding: 10px; /* Espaciado interno del encabezado */
+}
+
+.card-body {
+    padding: 20px; /* Espaciado interno del cuerpo del card */
+}
+
+/* Estilos para los botones dentro de los card */
+.card-body .btn {
+    width: 100%; /* Ancho completo para los botones */
+    margin-bottom: 10px; /* Margen inferior entre botones */
+}
+
+.card-body .btn-primary {
+    background-color: #3498db; /* Color azul para los botones */
+    border: none; /* Quita el borde de los botones */
+}
+
+.card-body .btn-primary:hover {
+    background-color: #2980b9; /* Cambia el color al pasar el mouse */
+}
