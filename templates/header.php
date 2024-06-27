@@ -22,7 +22,7 @@ $url_base = "http://localhost/funeraria/";
                 <a class="nav-link active" href="#" aria-current="page">Cementerio <span class="visually-hidden">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo $url_base;?>secciones/reportes/">Clientes</a>
+                <a class="nav-link" href="<?php echo $url_base;?>secciones/provincias/">Provincias</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo $url_base;?>secciones/reportes/">Reportes</a>
@@ -36,6 +36,8 @@ $url_base = "http://localhost/funeraria/";
                     <li><a class="dropdown-item" href="<?php echo $url_base;?>secciones/roles/">Roles</a></li>
                     <li><a class="dropdown-item" href="<?php echo $url_base;?>secciones/respaldo/">Respaldo</a></li>
                     <li><a class="dropdown-item" href="<?php echo $url_base;?>secciones/creacion/">Crud</a></li>
+                    <li><a class="dropdown-item" href="<?php echo $url_base;?>secciones/disparador/">Generación de disparadores de auditoria</a></li>
+                    <li><a class="dropdown-item" href="<?php echo $url_base;?>secciones/logs/">Visualizador de eventos y auditoria (Logs) </a></li>
                 </ul>
             </li>
             <li class="nav-item">

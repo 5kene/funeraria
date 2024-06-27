@@ -1,0 +1,126 @@
+/* Estilos para el modal */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Fijado en la pantalla */
+    z-index: 1; /* Sobre el contenido */
+    left: 0;
+    top: 0;
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Alto completo */
+    overflow: auto; /* Habilita el scroll si es necesario */
+    background-color: rgba(0, 0, 0, 0.4); /* Fondo negro con opacidad */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% desde la parte superior y centrado */
+    padding: 10px;
+    border-radius: 20px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+    width: 80%; /* Ancho del modal */
+    max-width: 400px; /* Ajusta el ancho máximo del modal */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilos para la tabla */
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 12px 15px;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.table tbody + tbody {
+    border-top: 2px solid #dee2e6;
+}
+
+.table .table {
+    background-color: #fff;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.075);
+}
+
+.table-bordered {
+    border: 1px solid #dee2e6;
+}
+
+.table-bordered th,
+.table-bordered td {
+    border: 1px solid #dee2e6;
+}
+
+.table-bordered thead th,
+.table-bordered thead td {
+    border-bottom-width: 2px;
+}
+
+.thead-dark th {
+    color: #fff;
+    background-color: #343a40;
+    border-color: #454d55;
+}
+
+.card {
+    max-width: 60%; /* Ajusta este valor según la anchura deseada */
+    margin: 20px auto; /* Centra la tarjeta horizontalmente y añade un margen superior e inferior */
+}
+.card-header {
+    background-color: #328a78; /* Color turquesa más oscuro para el encabezado de los card */
+    color: white; /* Texto blanco para el encabezado */
+    border-radius: 10px 10px 0 0; /* Añade bordes redondeados solo en la parte superior */
+    padding: 10px; /* Espaciado interno del encabezado */
+}
+/* Estilos para los botones dentro de los card */
+.card-body .btn {
+    margin-bottom: 10px; /* Margen inferior entre botones */
+}
+
+.card-body .btn-primary {
+    background-color: #3498db; /* Color azul para los botones */
+    border: none; /* Quita el borde de los botones */
+}
+.message-box {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px;
+    color: #fff;
+    background-color: #44c767;
+    border-radius: 5px;
+    z-index: 1000;
+    display: none; /* Inicialmente oculto */
+}
+.error-box {
+    background-color: #ff0000;
+}
